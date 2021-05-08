@@ -1,12 +1,12 @@
 CC = gcc
-CFLAGS = -ldwarf -lelf
+LDFLAGS = -ldwarf -lelf -lm
 OBJS = dwarf_instr.o growingBuffer.o leb.o types.o register.o symbol.o elfparse.o callFrameInfo.o elfutil.o fderead.o eh_pe.o elfwriter.o dwarftypes.o dwarfvm.o relocation.o list.o logging.o refcounted.o dictionary.o map.o hash.o util.o path.o stack.o target.o versioning.o hotpatch.o
 PROG = dwarf_compiler
 
 all: $(PROG)
 
 $(PROG): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
 dwarf_instr.o: dwarf_instr.c dwarf_instr.h
 	$(CC) $(CFLAGS) -c dwarf_instr.c
