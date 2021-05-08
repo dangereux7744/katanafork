@@ -760,7 +760,7 @@ Map* readDebugFrame(ElfInfo* elf,bool ehInsteadOfDebug)
     {
       getShdr(exceptTableSection,&shdr);
       elf->callFrameInfo.exceptTableAddress=shdr.sh_addr;
-      ExceptTable et=parseExceptFrame(exceptTableSection,lsdaPointers,numLSDAPointers);
+      ExceptTable et;//=parseExceptFrame(exceptTableSection,lsdaPointers,numLSDAPointers);
       elf->callFrameInfo.exceptTable=zmalloc(sizeof(ExceptTable));
       memcpy(elf->callFrameInfo.exceptTable,&et,sizeof(et));
     }

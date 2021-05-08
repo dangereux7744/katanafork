@@ -281,7 +281,8 @@ char* getFunctionNameAtPC(ElfInfo* elf,addr_t pc)
     //the name is a C++ mangled name, or at least it very likely is
     //(there is of course nothing stopping someone from naming a
     //function starting with _Z in C).
-    return demangleName(name);
+    //return demangleName(name);
+    return strdup(name);
   }
   else
   {

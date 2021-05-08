@@ -63,8 +63,8 @@
 #include "arch.h"
 
 //implemented in exceptTable.c to make this file a little smaller
-void buildExceptTableRawData(CallFrameInfo* cfi,GrowingBuffer* buf,
-                             addr_t** lsdaPointers);
+//void buildExceptTableRawData(CallFrameInfo* cfi,GrowingBuffer* buf,
+//                             addr_t** lsdaPointers);
 
 //reads the CIE's augmentationData and tries to set up
 //the cie->augmentationInfo
@@ -483,7 +483,7 @@ CallFrameSectionData buildCallFrameSectionData(CallFrameInfo* cfi)
 
     if(cfi->exceptTable)
     {
-      buildExceptTableRawData(cfi,&exceptTableBuf,&lsdaPointers);
+      //buildExceptTableRawData(cfi,&exceptTableBuf,&lsdaPointers);
       result.gccExceptTableData=exceptTableBuf.data;
       result.gccExceptTableLen=exceptTableBuf.len;
 
